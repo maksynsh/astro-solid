@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+@layer base {
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Montserrat', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-trim {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  .primary-gradient {
+    @apply from-violet-600 via-violet-300 via-30% to-white to-60%;
+  }
+}

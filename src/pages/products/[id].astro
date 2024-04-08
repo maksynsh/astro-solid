@@ -1,0 +1,24 @@
+---
+import axios from 'axios'
+
+import Layout from '@/layouts/Layout.astro'
+import type { Post } from '@/types/posts.ts'
+
+type Props = Post
+
+export async function getStaticPaths() {
+  const { data } = await axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
+  
+  return data.map((post) => ({
+    params: { id: post.id },
+    props: post,
+  }))
+}
+
+const { id } = Astro.params
+const post = Astro.props
+---
+
+<Layout title=`Product #${id}`>
+  <code>{JSON.stringify(post)}</code>
+</Layout>

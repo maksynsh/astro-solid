@@ -1,0 +1,15 @@
+---
+import axios from 'axios'
+
+import Layout from '@/layouts/Layout.astro'
+import Card from '@/components/Card.astro'
+import type { Post } from '@/types/posts.ts'
+
+const { data } = await axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
+---
+
+<Layout title="List of the products">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(24ch,1fr))] gap-8 p-8">
+    {data.map(({ id, title, body }) => <Card href={`/products/${id}`} title={title} body={body} />)}
+  </div>
+</Layout>

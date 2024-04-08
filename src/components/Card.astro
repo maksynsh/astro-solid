@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string
+  body: string
+  href: string
+}
+
+const { href, title, body } = Astro.props
+---
+
+<li
+  class="group list-none flex p-[1px] bg-slate-900 rounded-lg transition-all duration-500 shadow-sm
+    bg-size-400 bg-pos-100 hover:bg-pos-0 focus-within:bg-pos-0 bg-gradient-to-tr primary-gradient"
+>
+  <a
+    href={href}
+    class="w-full decoration-0 leading-snug p-6 rounded-lg text-white bg-slate-900 opacity-80"
+  >
+    <h2 class="group-hover:text-violet-300 m-0 text-xl transition-all duration-500 font-semibold">
+      {title}
+      <span>&rarr;</span>
+    </h2>
+    <p class="mt-2 mb-0 text-lg line-clamp-3">
+      {body}
+    </p>
+  </a>
+</li>
