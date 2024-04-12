@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import Card from '@/components/Card.astro'
+import Counter from '@/components/Counter'
 ---
 
 <Layout title="Welcome to Astro-Solid">
@@ -60,6 +61,7 @@ import Card from '@/components/Card.astro'
         body="Simple and performant reactivity for building user interfaces."
       />
     </ul>
+    <Counter client:visible />
   </main>
 </Layout>
 
